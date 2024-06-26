@@ -1,0 +1,92 @@
+
+.login-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-left,
+  .login-right {
+    flex-basis: 100%;
+  }
+  
+  .login-left img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 50%;
+  }
+  
+  .field {
+    margin-bottom: 10px; 
+  }
+  
+  .field label {
+    display: block;
+  }
+  
+  .field input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .field .sb {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(10, 10, 56);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .field .sb:hover {
+    background-color: rgb(15, 15, 68);
+  }
+  
+  .field a {
+    text-align: center;
+    color: rgb(10, 10, 56);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  
+  @media screen and (min-width: 768px) {
+    .login-left,
+    .login-right {
+      flex-basis: 50%;
+    }
+
+    .login-left img{
+        max-width:350px;
+    }
+    .login-right {
+      margin-top: 0; 
+    }
+  
+    .field input,
+    .field .sb {
+      width: calc(100% - 130px); 
+      /* width: calc(100% - 20px);  */
+    }
+  }
+  @media screen and (min-width: 1000px){
+    .login-left img{
+        max-width:500px;
+    }
+  }
+  
+ 
+  @media screen and (max-width: 767px) {
+    .login-left,
+    .login-right {
+      flex-basis: 100%;
+    }
+  }
+  
+  

@@ -1,0 +1,156 @@
+<app-header></app-header>
+
+<div class="row a">
+    <div>
+        <p-table #dt1 [value]="vehicles" dataKey="id" [rows]="5" [showCurrentPageReport]="true"
+            [rowsPerPageOptions]="[5, 10, 20]" [loading]="loading" [paginator]="true" currentPageReportTemplate=""
+            [globalFilterFields]="['Name', 'Category', 'PlateNumber', 'Details', 'MakeItAvailable']">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Plate Number</th>
+                    <th>Details</th>
+                    <th>Make It Available</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-vehicle let-rowIndex="rowIndex">
+                <tr>
+                    <td>
+                        <img [src]="vehicle.imagePath" width="30" height="30" />
+                    </td>
+                    <td>{{ vehicle.Name }}</td>
+                    <td>{{ vehicle.Category }}</td>
+                    <td>{{ vehicle.PlateNumber }}</td>
+                    <td>{{ vehicle.Details }}</td>
+                    <td>
+                        <input type="checkbox" [checked]="vehicle.MakeItAvailable"
+                            (click)="onClickCheckbox(vehicle.id)" />
+                    </td>
+                    <td>
+                        <button class="btn btnn" (click)="onClickEdit(vehicle)" [disabled]="!vehicle.MakeItAvailable"><i
+                                class="pi pi-pencil" style="font-size: 1rem;"></i></button>
+                    </td>
+                    <td>
+                        <button class="btn btnn" (click)="confirmDelete(vehicle)"
+                            [disabled]="!vehicle.MakeItAvailable"><i class="pi pi-trash"
+                                style="font-size: 1rem;"></i></button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="caption">
+                <p class="list">List Of Vehicles</p>
+                <div class="d-flex justify-content-end align-items-center">
+                    <div class="flex" style="margin-right: 0.2rem;">
+                        <span class="p-input-icon-left ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" class="search-input" (input)="onInput($event)"
+                                placeholder="search" />
+                        </span>
+                    </div>
+                    <div>
+                        <button class="btn addVehicle" (click)="onClick()">Add Vehicle</button>
+                    </div>
+                </div>
+            </ng-template>
+            <!-- <ng-template pTemplate="paginatorright">
+                <input type="text" [(ngModel)]="gotoPage" style="width: 40px; height: 47.6px; margin-right: 10px; text-align: center;">
+                <button class="go-button" (click)="onGoButtonClick()">Go</button>
+            </ng-template> -->
+
+            <ng-template pTemplate="paginatorright" >
+                <div class="paginator">
+                    <input type="text" [(ngModel)]="gotoPage" class="go-input">
+                    <button class="go-button" (click)="onGoButtonClick()">Go</button>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="5">No vehicles found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+    <p-confirmDialog></p-confirmDialog>
+</div>
+
+<div class="row">
+    <p-dialog header="Add Vehicle" [(visible)]="displayDialog" [modal]="true" [responsive]="true"
+        [style]="{width: '400px'}" #dialogRef>
+        <form #vehicleForm="ngForm" (ngSubmit)="save(vehicleForm)">
+            <div class="form-group">
+                <label for="imagepath">Image Path:</label>
+                <input type="text" id="imagepath" name="imagePath" class="form-control" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="Name" class="form-control" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="Category" class="form-control" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="perday">Per Day:</label>
+                <input type="number" id="perday" name="perDay" class="form-control" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="platenumber">Plate Number:</label>
+                <input type="text" id="platenumber" name="PlateNumber" class="form-control" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="details">Details:</label>
+                <input type="text" id="details" name="Details" class="form-control" ngModel required>
+            </div>
+
+            <br>
+            <button type="button" class="btn cancle" (click)="hideDialog()">Cancel</button>
+            <button type="submit" class="btn add" [disabled]="!vehicleForm.valid">Add</button>
+        </form>
+    </p-dialog>
+</div>
+
+<div class="row" *ngIf="displayDialogForEdit">
+    <p-dialog header="Edit Vehicle" [(visible)]="displayDialogForEdit" [modal]="true" [responsive]="true"
+        [style]="{width: '400px'}" #dialogRefEdit>
+        <form #vehicleEditForm="ngForm" (ngSubmit)="onClickEditForSubmit(vehicleEditForm)">
+            <div class="form-group">
+                <label for="imagepath">Image Path:</label>
+                <input type="text" id="imagepath" name="imagePath" class="form-control" [(ngModel)]="vehicle.imagePath"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="Name" class="form-control" [(ngModel)]="vehicle.Name" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="Category" class="form-control" [(ngModel)]="vehicle.Category"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="perday">Per Day:</label>
+                <input type="number" id="perday" name="perDay" class="form-control" [(ngModel)]="vehicle.perDay"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="platenumber">Plate Number:</label>
+                <input type="text" id="platenumber" name="PlateNumber" class="form-control"
+                    [(ngModel)]="vehicle.PlateNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="details">Details:</label>
+                <input type="text" id="details" name="Details" class="form-control" [(ngModel)]="vehicle.Details"
+                    required>
+            </div>
+
+            <br>
+            <button type="button" class="btn cancle2" (click)="onClickCancle()">Cancle</button>
+            <button type="submit" class="btn save" [disabled]="!vehicleEditForm.valid">Save</button>
+        </form>
+    </p-dialog>
+</div>

@@ -1,0 +1,38 @@
+<app-header></app-header>
+<!-- <router-outlet></router-outlet> -->
+
+
+<div class="content">
+  <div class="row a">
+    <div class="col-sm-12 col-md-10 col-lg-8">
+      <h6 class="heading"><b>Welcome to Car Rentals!..</b></h6>
+      <p>Choose from the wide variety of cars..</p>
+    </div>
+  </div>
+
+
+  <div class="row a">
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let vehicle of vehicles; let i = index">
+      <div class="card" [ngClass]="{'opacity-less':!vehicle.MakeItAvailable}">
+        <img [src]="vehicle.imagePath" class="card-img-top" alt="vehicle image">
+        <div class="card-body">
+          <span class="fa fa-star checked rating"></span>
+          <span class="fa fa-star checked rating"></span>
+          <span class="fa fa-star checked rating"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <button type="button" class="btn" [disabled]="!vehicle.MakeItAvailable"
+            (click)="onClick(vehicle.id)">Book</button>
+          <p class="card-text">{{ vehicle.Name|uppercase }}</p>
+          <h5 class="card-title">${{ vehicle.perDay }}/day</h5>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam perferendis corporis magni quae
+            temporibus optio, exercitationem autem architecto asperiores, similique quaerat, ducimus fuga doloribus
+            ipsam!</p>
+          <div class="unavailable-overlay" *ngIf="!vehicle.MakeItAvailable">
+            <p class="currently-unavailable">Currently unavailable</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

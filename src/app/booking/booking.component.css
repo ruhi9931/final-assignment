@@ -1,0 +1,97 @@
+.btn1 {
+    background-color: #fff;
+    color: #162542;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.container {
+    margin-top: 0.5rem;
+}
+
+.a {
+    padding-top: 0.75rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.info{
+    background-color: #F5F7FF
+}
+
+.heading{
+    color: #162542;
+}
+
+.head-par{
+    text-align: justify; color:#162542;
+}
+
+.content{
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: flex-start;
+}
+
+.card-body{
+    background-color: #162542; 
+    color:#fff
+}
+
+.btn2{
+    text-align: center; 
+    border: 1px solid #fff; 
+    background-color: #fff; 
+    border-radius: 7px; 
+    margin-left: 1rem; 
+    margin-right: 1rem;
+}
+
+.booking-btn{
+    background-color:#162542 ; 
+    color:#fff
+}
+
+.cancle-btn{
+    background-color: #fff;
+    border: 1px solid #162542;
+    color: #162542;
+    margin-left: 1rem;
+    
+}
+.booking-div{
+    text-align: center;
+}
+
+:host ::ng-deep .confirmationDialog .p-dialog-content {
+    background-color: #162542 !important;
+    color: #fff;
+  }
+  
+  :host ::ng-deep .confirmationDialog .p-dialog-header {
+    background-color: #162542 !important;
+    color: #fff !important;
+  }
+  
+  .thankyou {
+    position: relative !important;
+    left: 44% !important;
+  }
+  
+  .confirmationMessage {
+    text-align: center !important;
+  }
+  
+  .text{
+    text-align: center;
+  }
+
+  /* ::ng-deep .p-dialog-header{
+    text-align: center;
+    padding: 0;
+} */
+
+.b-head{
+    text-align: center;
+}

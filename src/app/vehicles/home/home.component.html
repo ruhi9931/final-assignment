@@ -1,0 +1,50 @@
+<app-header></app-header>
+
+<div class="whole">
+    <div class="row content">
+        <h6 class="heading">Welcome to Rent Wheels!</h6>
+        <br>
+        <p [ngClass]="{'expanded': isExpanded}" class="read-more-content">
+            At Rent Wheels, we're passionate about providing you with the freedom to explore the world on your terms.
+            Whether you're planning a road trip, commuting in the city, or simply need a reliable vehicle for your
+            everyday adventures, we've got you covered
+            <span *ngIf="!isExpanded" class="additional-content">
+                ...
+            </span>
+            <span *ngIf="isExpanded" class="additional-content">
+                .
+            </span>
+            <span *ngIf="isExpanded" class="additional-content">
+                Additional hidden content you want to reveal goes here .
+            </span>
+            <a (click)="toggleExpand()" class="read-more">
+                {{ isExpanded ? 'Read Less' : 'Read More' }}
+            </a>
+        </p>
+    </div>
+    <!-- <button (click)="onClickButton()">Click</button> -->
+    <div class="row">
+        <h6>Categories</h6>
+    </div>
+
+    <p-carousel [value]="categories" [numVisible]="3" [numScroll]="3" [circular]="false"
+        [responsiveOptions]="responsiveOptions">
+        <ng-template let-category pTemplate="item">
+            <div class="category-card-custom">
+                <div class="category-card border-1 surface-border border-round m-2 text-center py-3 px-2">
+                    <div class="image-container mb-3">
+                        <img [src]="category.image" [alt]="category.description" class="img-fluid shadow-2" />
+                    </div>
+                    <div>
+                        <h5 class="mb-1">{{ category.description }}</h5>
+                        <div class="category1">
+                            <h6 class="btn mt-0 mb-3" style="cursor:pointer" *ngIf="category.type==='Cars'"
+                                (click)="onClick()"><b>{{ category.type }}</b></h6>
+                            <h6 class="btn mt-0 mb-3" *ngIf="category.type!=='Cars'"><b>{{ category.type }}</b></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+</div>

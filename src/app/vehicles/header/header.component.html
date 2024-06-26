@@ -1,0 +1,48 @@
+<nav>
+  <div class="nav-left">
+    <img src="assets/images/icon.png" alt="Icon" class="img" [routerLink]="['/home']">
+    <a class="navFont nav-style" *ngIf="isAdmin" (click)="onClickBooking()"><b>Booking</b></a>
+    <a class="navFont nav-style" *ngIf="isAdmin" (click)="onClickManage()"><b>Manage</b></a>
+  </div>
+  <div class="nav-right">
+    <button type="button" class="navFont log-out" (click)="onClickLogout()"><b>Log out</b></button>
+    <a class="navFont pii"><span class="pi pi-user" (click)="onClick()"></span></a>
+  </div>
+</nav>
+
+
+
+
+<p-dialog header="User Detail" [(visible)]="displayUserDialog" [style]="{ 'width': '50%', 'max-width': '600px' }">
+  <div class="user-details user-form">
+    <div class="user-item">
+      <div class="user-property">Name:</div>
+      <div class="user-value">{{ user.name}}</div>
+    </div>
+
+    <div class="user-item">
+      <div class="user-property">Address:</div>
+      <div class="user-value">{{ user.address}}</div>
+    </div>
+
+    <div class="user-item">
+      <div class="user-property">Email:</div>
+      <div class="user-value">{{ user.email}}</div>
+    </div>
+
+    <div class="user-item">
+      <div class="user-property">Phone:</div>
+      <div class="user-value">{{ user.phone}}</div>
+    </div>
+
+    <div class="user-item">
+      <div class="user-property">Date of Birth:</div>
+      <div class="user-value">{{ user.dob}}</div>
+    </div>
+
+    <div class="user-item">
+      <div class="user-property">DL No.:</div>
+      <div class="user-value">{{ user.dl}}</div>
+    </div>
+  </div>
+</p-dialog>

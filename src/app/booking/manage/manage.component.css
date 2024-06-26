@@ -1,0 +1,215 @@
+.row {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.row.a{
+  background-color: #F5F7FF;
+}
+
+.btnn{
+  cursor: pointer;
+}
+.cancle{
+  border: 1px solid #162542; 
+  margin-right: 0.3rem;
+}
+
+.add{
+  background-color: #162542; 
+  color: #fff
+}
+
+.cancle2{
+  background-color: #fff; 
+  color: #162542; 
+  border: 1px solid #162542; 
+  margin-right: 0.4rem;
+}
+
+.save{
+  background-color: #162542; 
+  color: #fff
+}
+.search-input {
+  width: 200px;
+  height: 33px;
+}
+
+.btn.addVehicle {
+  background-color: #162542;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 14px;
+  padding: 5px 23px 5px 23px;
+}
+
+.list{
+  margin: 0 !important;
+  position: absolute;
+  text-align: center;
+  padding-top: 0.35rem;
+}
+
+@media (max-width:400px){
+  .list p{
+    display: block;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .search-input {
+    width: 100px;
+  }
+}
+
+::ng-deep .p-datatable table thead tr th {
+  background-color: #C4CCE8 !important;
+  font-size: 14px;
+}
+
+::ng-deep .ng-star-inserted {
+  font-size: 14px;
+}
+
+::ng-deep .p-paginator-bottom.p-paginator.p-component.ng-star-inserted {
+  padding: 0;
+  margin: 0;
+  margin-top: 1rem;
+  border: 1px solid #162542;
+}
+
+::ng-deep.p-paginator {
+  float: right;
+  margin-top: 1rem;
+}
+
+::ng-deep .p-datatable-header {
+  background-color: #F5F7FF !important;
+}
+
+::ng-deep .p-datatable .p-datatable-header {
+  padding-right: 0;
+  margin-right: 0;
+  margin-left: 0;
+  padding-left: 0.17rem;
+}
+
+::ng-deep .p-paginator-rpp-options.p-dropdown.p-component {
+  margin: 0;
+  padding: 0;
+}
+
+::ng-deep .p-paginator-current.ng-star-inserted {
+  margin: 0;
+  padding: 0;
+}
+
+::ng-deep .p-paginator {
+  flex-wrap: nowrap !important;
+  background-color: #F5F7FF !important;
+  border: none;
+}
+
+::ng-deep .p-button{
+  padding: 0.5rem 2.5rem;
+}
+
+::ng-deep .p-element.p-ripple.custom-yes-button{
+  background-color: #162542 !important;
+  color: #fff;
+  border: none;
+}
+
+::ng-deep .p-element.p-ripple.custom-no-button{
+  background-color: #fff !important;
+  color: #162542;
+  border: 1px solid #162542;
+}
+
+::ng-deep .p-button-icon-left.p-icon{
+  display: none;
+}
+
+::ng-deep .p-paginator-rpp-options.p-dropdown.p-component{
+  background-color: #F5F7FF;
+  border: none;
+}
+
+::ng-deep .custom-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 200px;
+  margin-bottom: 10px;
+}
+
+ ::ng-deep.confirmation-dialog {
+  display: flex;
+  align-items: center; 
+}
+
+::ng-deep.confirmation-body {
+  text-align: center;
+}
+
+::ng-deep.confirmation-par {
+  align-items: center;
+}
+
+::ng-deep.confirmation-icon {
+  margin-left: 7.5rem; 
+  text-align: center;
+}
+
+@media (max-width:500px){
+  ::ng-deep.confirmation-icon {
+    margin-left: 3rem; 
+    text-align: center;
+  }
+}
+
+::ng-deep .p-ripple.p-element.p-paginator-element.p-link{
+  margin: 0;
+  padding: 0;
+}
+
+::ng-deep .p-ripple.p-element.p-paginator-element.p-link.p-highlight{
+  background-color: #162542;
+  color: #fff;
+}
+
+::ng-deep .p-paginator .p-paginator-pages .p-paginator-page{
+  border-radius: 0px;
+}
+
+.go-button{
+  border: none;
+  background-color: #F5F7FF;
+  margin:0;
+  padding: 13.5px;
+
+  margin-top: 0;
+  background-color: #162542;
+  color: #fff;
+}
+
+::ng-deep.p-paginator-current.ng-star-inserted{
+  display: none !important;
+}
+
+::ng-deep.p-paginator-bottom.p-paginator.p-component{
+  position: relative;
+  right: 6.5rem;
+}
+.paginator {
+  float: right;
+  position: absolute !important;
+  bottom: 0px !important;
+  right: -105px !important;
+}
+
+.go-input{
+  width: 40px; 
+  height: 48px; 
+  margin-right: 10px; 
+  text-align: center;
+}

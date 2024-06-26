@@ -1,0 +1,58 @@
+.btn {
+    background-color: #fff;
+    color: #162542;
+    float:inline-end;
+}
+
+.content{
+    background-color: #F5F7FF;
+}
+
+.heading{
+    color: #162542;
+}
+
+.a {
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+}
+
+.model-and-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.opacity-less {
+    opacity: 0.6;
+}
+
+.unavailable-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+element.style{
+    margin-left: 0 !important;
+}
+
+.card-body{
+    background-color: #162542; 
+    color:#fff
+}
+
+.rating{
+    color:#FFDF3C;
+}
+
+.currently-unavailable{
+    position: absolute; 
+    top: 32%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}

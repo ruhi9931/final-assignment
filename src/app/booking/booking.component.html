@@ -1,0 +1,199 @@
+<app-header></app-header>
+
+<div class="row a info">
+    <div class="col-sm-12 col-md-10 col-lg-8">
+        <h6 class="heading"><b>Welcome back Admin!...</b></h6>
+        <br>
+        <p class="head-par"><b>Booking Status</b></p>
+    </div>
+</div>
+<div class="row a content">
+    <ng-container *ngFor="let vehicle of vehicles; let i = index">
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="card">
+                <img [src]="vehicle.imagePath" class="card-img-top" alt="vehicle image">
+                <div class="card-body">
+                    <div class="model-and-button">
+                        <p class="card-text">{{ vehicle.Name }}</p>
+                        <div class="btn2">
+                            <button type="button" class="btn1" (click)="onClick(vehicle.id)"
+                                [disabled]="!vehicle.MakeItAvailable"><b>{{vehicle.MakeItAvailable?'Book':'Booked'}}</b></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
+
+<p-dialog [(visible)]="dialog" [style]="{ width: '90%', 'max-width': '500px', 'margin': 'auto' }" #dialogRef>
+    <h5 class="b-head"><b>Booking Form</b></h5>
+    <br>
+
+    <p><b>Vehicle Details:</b></p>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="vehicleName">Vehicle Name:</label>
+                <input id="vehicleName" name="vehicleName" class="form-control " [(ngModel)]="selectedVehicleName"
+                    required>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="endDate">Starting Date:</label>
+                <input type="date" id="startDate" name="startDate" class="form-control " ngModel required>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <input id="category" name="category" class="form-control" [(ngModel)]="selectedVehicleCategory"
+                    required>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="endDate">Ending Date:</label>
+                <input type="date" id="endDate" name="endDate" class="form-control " ngModel required>
+            </div>
+        </div>
+    </div>
+    <br>
+    <form #bookingForm="ngForm" (ngSubmit)="onSubmitBookingForm(bookingForm)">
+        <div class="user-details">
+            <p><b>User Details:</b></p>
+            
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" ngModel required minlength="2" maxlength="50"
+                            class="form-control">
+                        <div *ngIf="bookingForm.controls['name'] && (bookingForm.controls['name'].invalid && (bookingForm.controls['name'].dirty || bookingForm.controls['name'].touched))"
+                            class="text-danger">
+                            <div *ngIf="bookingForm.controls['name'].errors?.['required']">Name is required.</div>
+                            <div *ngIf="bookingForm.controls['name'].errors?.['minlength']">Name must be at least 2
+                                characters long.</div>
+                            <div *ngIf="bookingForm.controls['name'].errors?.['maxlength']">Name cannot be more than 50
+                                characters long.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" name="address" ngModel required minlength="5" maxlength="100"
+                            class="form-control">
+                        <div *ngIf="bookingForm.controls['address'] && (bookingForm.controls['address'].invalid && (bookingForm.controls['address'].dirty || bookingForm.controls['address'].touched))"
+                            class="text-danger">
+                            <div *ngIf="bookingForm.controls['address'].errors?.['required']">Address is required.</div>
+                            <div *ngIf="bookingForm.controls['address'].errors?.['minlength']">Address must be at least
+                                5 characters long.</div>
+                            <div *ngIf="bookingForm.controls['address'].errors?.['maxlength']">Address cannot be more
+                                than 100 characters long.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" ngModel required email class="form-control">
+                        <div *ngIf="bookingForm.controls['email'] && (bookingForm.controls['email'].invalid && (bookingForm.controls['email'].dirty || bookingForm.controls['email'].touched))"
+                            class="text-danger">
+                            <div *ngIf="bookingForm.controls['email'].errors?.['required']">Email is required.</div>
+                            <div *ngIf="bookingForm.controls['email'].errors?.['email']">Please enter a valid email
+                                address.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" name="phone" ngModel required minlength="10" maxlength="15"
+                            pattern="[0-9]+" class="form-control">
+                        <div *ngIf="bookingForm.controls['phone'] && (bookingForm.controls['phone'].invalid && (bookingForm.controls['phone'].dirty || bookingForm.controls['phone'].touched))"
+                            class="text-danger">
+                            <div *ngIf="bookingForm.controls['phone'].errors?.['required']">Phone number is required.
+                            </div>
+                            <div *ngIf="bookingForm.controls['phone'].errors?.['minlength']">Phone number must be at
+                                least 10 digits long.</div>
+                            <div *ngIf="bookingForm.controls['phone'].errors?.['maxlength']">Phone number cannot be more
+                                than 15 digits long.</div>
+                            <div *ngIf="bookingForm.controls['phone'].errors?.['pattern']">Please enter a valid phone
+                                number.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="dob">Date of Birth:</label>
+                        <!-- <input type="date" id="dob" name="dob" ngModel required class="form-control">
+                            <div *ngIf="bookingForm.controls['dob'] && (bookingForm.controls['dob'].invalid && (bookingForm.controls['dob'].dirty || bookingForm.controls['dob'].touched))" class="text-danger">
+                                <div *ngIf="bookingForm.controls['dob'].errors?.['required']">Date of Birth is required.</div>
+                                <div *ngIf="bookingForm.controls['dob'].errors?.['futureDate']">Date of Birth cannot be a future date.</div>
+                            </div> -->
+                        <input type="date" id="dob" name="dob" ngModel required dobValidator #dob="ngModel" class="form-control">
+                        <div *ngIf="dob.invalid && (dob.dirty || dob.touched)">
+                            <div *ngIf="bookingForm.controls['dob'].errors?.['required']" class="text-danger">Date of Birth is required.
+                            </div>
+                            <div *ngIf="dob.errors?.['futureDate']" class="text-danger">Date of birth can't be in the future.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="dl">DL No.:</label>
+                        <input type="text" id="dl" name="dl" ngModel required minlength="5" maxlength="20"
+                            class="form-control">
+                        <div *ngIf="bookingForm.controls['dl'] && (bookingForm.controls['dl'].invalid && (bookingForm.controls['dl'].dirty || bookingForm.controls['dl'].touched))"
+                            class="text-danger">
+                            <div *ngIf="bookingForm.controls['dl'].errors?.['required']">DL No. is required.</div>
+                            <div *ngIf="bookingForm.controls['dl'].errors?.['minlength']">DL No. must be at least 5
+                                characters long.</div>
+                            <div *ngIf="bookingForm.controls['dl'].errors?.['maxlength']">DL No. cannot be more than 20
+                                characters long.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="booking-div">
+            <button type="submit" class="btn mt-3 booking-btn" [disabled]="!bookingForm.valid">Book</button>
+            <button type="button" class="btn mt-3 cancle-btn" (click)="onClickCancle()">Cancle</button>
+        </div>
+    </form>
+</p-dialog>
+
+
+<div class="card flex justify-content-center" *ngIf="bookingConfirmDialog">
+    <p-dialog header="Header" [(visible)]="bookingConfirmDialog" [style]="{ width: '50vw' }"
+        styleClass="confirmationDialog">
+        <ng-template pTemplate="header">
+            <div class="thankyou">
+                <span class="text-xl font-bold">Thank You...</span>
+            </div>
+        </ng-template>
+        <p class="confirmationMessage">
+            Your booking for {{vehicle.Name}} is Confirmed.
+        </p>
+        <img [src]="vehicle.imagePath" style="height:200px; width: 300px;">
+        <!-- <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="bookingConfirmDialog=false" label="Ok"
+          styleClass="p-button-text"></p-button>
+      </ng-template> -->
+    </p-dialog>
+</div>

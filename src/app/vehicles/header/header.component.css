@@ -1,0 +1,77 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+}
+
+/* .icon{
+  height: 700px;
+  width: 150px;
+} */
+.img{
+  height: 40px; 
+  width: 40px;
+  cursor: pointer;
+}
+.nav-style{
+  color: #162542; 
+  text-decoration: underline; 
+  cursor: pointer;
+  margin-right: 0.6rem;
+}
+.log-out{
+  background-color: #fff; 
+  border:1px solid #fff
+}
+
+.pii{
+  color: #162542;
+  cursor: pointer;
+}
+
+.user-form{
+  color:#162542; 
+  padding: 1rem;
+}
+.navFont{
+  font-size: 15px;
+}
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-left img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.nav-right a {
+  margin-left: 10px;
+}
+
+@media (max-width: 600px) {
+  nav {
+    flex-direction: row;
+    text-align: center;
+  }
+}
+
+.user-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.user-item {
+  display: flex;
+}
+
+.user-property {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}

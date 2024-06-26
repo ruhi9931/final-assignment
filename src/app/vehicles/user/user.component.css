@@ -1,0 +1,30 @@
+/* .user-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-details {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .user-property {
+    font-weight: bold;
+  }
+  
+  .user-value {
+    margin-bottom: 10px;
+  }
+  
+  @media (max-width: 992px) {
+    .user-card {
+      width: 100%;
+    }
+  }
+  .container{
+    margin-top: 3rem;
+    
+  } */

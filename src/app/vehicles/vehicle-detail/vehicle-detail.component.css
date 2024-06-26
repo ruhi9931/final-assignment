@@ -1,0 +1,62 @@
+.btn {
+  background-color: #162542;
+  color: #fff
+}
+
+.is-invalid {
+  border-color: #dc3545;
+  /* padding-right: calc(1.5em + .75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 8 8'%3e%3cpath stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M2.5 2.5l3 3m0-3l-3 3'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem); */
+}
+
+.invalid-feedback {
+  color: #dc3545;
+}
+
+:host ::ng-deep .confirmationDialog .p-dialog-content {
+  background-color: #162542 !important;
+  color: #fff;
+}
+
+:host ::ng-deep .confirmationDialog .p-dialog-header {
+  background-color: #162542 !important;
+  color: #fff !important;
+}
+
+.thankyou {
+  position: relative !important;
+  left: 44% !important;
+}
+
+.confirmationMessage {
+  text-align: center !important;
+}
+
+.text{
+  text-align: center;
+}
+
+.img{
+  max-width: 100%; 
+  height: auto;
+}
+
+.content{
+  margin-left: 1.5rem;
+}
+
+.first-part{
+  background-color: #F5F7FF;
+}
+
+.second-part{
+  text-align: center; 
+  text-decoration: underline;
+}
+
+.title{
+  text-align: center;
+}
